@@ -24,6 +24,14 @@ router.post(
   MyRestaurantController.createMyRestaurant
 );
 
+// Get user restaurant orders
+router.get(
+  "/order",
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.getMyRestaurantOrders
+);
+
 // Get user restaurant
 router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
 
@@ -35,6 +43,13 @@ router.put(
   jwtCheck,
   jwtParse,
   MyRestaurantController.updateMyRestaurant
+);
+
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.updateOrderStatus
 );
 
 export default router;

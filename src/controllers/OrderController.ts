@@ -26,7 +26,7 @@ const getMyOrders = async (req: Request, res: Response) => {
   try {
     const orders = await Order.find({ user: req.userId }).populate(
       "restaurant",
-      "user"
+      "user imageUrl restaurantName"
     );
     res.json(orders);
   } catch (error) {
